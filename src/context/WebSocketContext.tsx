@@ -22,7 +22,7 @@ export const WebSocketProvider = ({ children }: { children: React.ReactNode }) =
   const [tasks, setTasks] = useState<Task[]>([]);
 
   useEffect(() => {
-    const newSocket = io("http://localhost:4000"); // Replace with actual backend URL
+    const newSocket = io("https://ai-task-backend.onrender.com"); // Replace with actual backend URL
     setSocket(newSocket);
 
     newSocket.on("taskList", (updatedTasks: Task[]) => {
