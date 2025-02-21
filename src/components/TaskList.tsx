@@ -11,7 +11,7 @@ const TaskList = () => {
   const handleAddTask = () => {
     if (newTask.trim()) {
       addTask({
-        id: crypto.randomUUID(),
+        id: Date.now(), // ✅ Change crypto.randomUUID() to Date.now() (number)
         title: newTask,
         completed: false,
       });
@@ -23,7 +23,6 @@ const TaskList = () => {
     <div className="bg-white p-6 rounded-xl shadow-lg w-full">
       <h2 className="text-lg font-semibold mb-4 text-gray-800">Your Tasks</h2>
 
-      {/* Task Input */}
       <div className="flex gap-2 mb-4">
         <input
           type="text"
@@ -40,7 +39,6 @@ const TaskList = () => {
         </button>
       </div>
 
-      {/* Task List */}
       <ul className="space-y-3">
         {tasks.map((task) => (
           <li
